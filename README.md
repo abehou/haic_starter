@@ -35,7 +35,7 @@ Participants should familiarize themselves with the rules of the game and [set u
 ## Instructions on Setting Up the Game Dev Environment
 
 ### Quick Setup (Recommended)
-After cloning the repo, you can run our automated setup script:
+After cloning the repo or the repo you created based on this template, you can run our automated setup script:
 ```bash
 git clone --recurse-submodules https://github.com/abehou/haic_starter.git
 cd haic_starter
@@ -52,7 +52,7 @@ This script will automatically:
 If you prefer manual setup or encounter issues, follow the detailed steps below.
 
 ### Manual Setup (Step by Step)
-0. First, clone this repo or create a new repo based on this github template:
+0. First, clone this repo or create a new repo based on this github template (recommended):
 
 If you clone:
 ```bash
