@@ -11,15 +11,26 @@
         "port": 7124
       },
       {
+        "name": "untimely-neglected-wearable",
+        "directory": "./example_snakes/untimely-neglected-wearable",
+        "port": 7125
+      },
+      {
         "name": "oliver-king-snake",
         "directory": "./example_snakes/oliver-king-snake",
         "port": 7126
       },
       {
-        "name": "untimely-neglected-wearable",
-        "directory": "./example_snakes/untimely-neglected-wearable",
-        "port": 7125
+        "name": "MikeSnake",
+        "directory": "./example_snakes/MikeSnake",
+        "port": 7127
+      },
+      {
+        "name": "CardinalSnake",
+        "directory": "./example_snakes/CardinalSnake",
+        "port": 7128
       }
+
     ],
     "base_port": 7123,
     "tournament_settings": {
