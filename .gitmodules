@@ -1,9 +1,9 @@
 [submodule "example_snakes/oliver-king-snake"]
 	path = example_snakes/oliver-king-snake
-	url = git@github.com:abehou/oliver-king-snake.git
+	url = https://github.com/abehou/oliver-king-snake.git
 [submodule "example_snakes/untimely-neglected-wearable"]
 	path = example_snakes/untimely-neglected-wearable
-	url = git@github.com:abehou/untimely-neglected-wearable.git
+	url = https://github.com/abehou/untimely-neglected-wearable.git
 [submodule "rules"]
 	path = rules
 	url = https://github.com/BattlesnakeOfficial/rules.git
