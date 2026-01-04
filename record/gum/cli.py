@@ -187,8 +187,14 @@ async def _main():
     # Use absolute path to ensure consistency regardless of where script is run from
     import pathlib
 
-    record_dir = pathlib.Path(__file__).parent.parent  # record/ directory
-    data_directory = str(record_dir / "data")
+    # Find project root: go up 3 levels from record/gum/cli.py -> record/gum/ -> record/ -> project root
+    project_root = pathlib.Path(__file__).parent.parent.parent
+    data_directory = str(project_root / "data")
+    
+    # Convert screenshots_dir to absolute path relative to project root if it's relative
+    screenshots_dir = args.screenshots_dir
+    if not os.path.isabs(screenshots_dir):
+        screenshots_dir = str(project_root / screenshots_dir)
 
     # Collect all observers
     observers = []
@@ -218,7 +224,7 @@ async def _main():
 
         # Create Screen observer with scroll filtering configuration
         screen_observer = Screen(
-            screenshots_dir=args.screenshots_dir,
+            screenshots_dir=screenshots_dir,
             debug=args.debug,
             scroll_debounce_sec=args.scroll_debounce,
             scroll_min_distance=args.scroll_min_distance,
@@ -253,7 +259,7 @@ async def _main():
     if True:  # Always enable terminal monitoring
         terminal_observer = TerminalObserver(
             poll_interval=2.0,
-            screenshots_dir=args.screenshots_dir,  # Pass screenshots dir so AI logs are saved there
+            screenshots_dir=screenshots_dir,  # Pass screenshots dir so AI logs are saved there
             debug=args.debug,
         )
         observers.append(terminal_observer)
@@ -270,7 +276,7 @@ async def _main():
     if args.monitor_ai:
         print("[4/5] Initializing AI activity monitoring...")
         ai_detector = AIActivityDetector(
-            screenshots_dir=args.screenshots_dir,
+            screenshots_dir=screenshots_dir,
             poll_interval=0.5,
             debug=args.debug,
             data_directory=data_directory,
@@ -279,7 +285,7 @@ async def _main():
 
         # Conversation Observer for detailed event-based capture
         conversation_observer = ConversationObserver(
-            screenshots_dir=args.screenshots_dir, data_directory=data_directory, debug=args.debug
+            screenshots_dir=screenshots_dir, data_directory=data_directory, debug=args.debug
         )
         observers.append(conversation_observer)
         print("      AI monitoring initialized (ChatGPT, Claude, Cursor, etc.)")

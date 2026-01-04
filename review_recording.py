@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # Global state - use absolute path relative to this script
 SCRIPT_DIR = Path(__file__).parent
-DATA_DIR = SCRIPT_DIR / "record" / "data"
+DATA_DIR = SCRIPT_DIR / "data"
 SCREENSHOTS_DIR = DATA_DIR / "screenshots"
 DB_PATH = DATA_DIR / "actions.db"
 
@@ -386,7 +386,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="Review recording before submission")
     parser.add_argument(
-        "--data-dir", default="record/data", help="Directory containing recordings (default: data)"
+        "--data-dir", default="data", help="Directory containing recordings (default: data)"
     )
     parser.add_argument(
         "--port", type=int, default=5555, help="Port for web server (default: 5555)"
@@ -404,8 +404,8 @@ def main():
     if not SCREENSHOTS_DIR.exists():
         print(f"ERROR: Screenshots directory not found: {SCREENSHOTS_DIR}")
         print(
-            "Have you run 'gum' to record data? It can also be found in the record/gum "
-            "directory. If that's the case, add a --data-dir flag to specify the data directory."
+            "Have you run 'gum' to record data? If your data is in a different location, "
+            "add a --data-dir flag to specify the data directory."
         )
         return 1
 

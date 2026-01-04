@@ -71,7 +71,7 @@ def load_config(config_path="eval/snapshot_config.json"):
     return config
 
 
-def check_recordings_available(data_dir="record/data"):
+def check_recordings_available(data_dir="data"):
     """Check if recording data is available"""
     data_path = Path(data_dir).expanduser()
     if not data_path.exists():
@@ -307,7 +307,7 @@ def submit_recordings_only(args, config):
         print(f"\nExpected location: {args.data_dir}")
         print("\nTo fix this:")
         print("  1. Run 'gum' to start recording your development session")
-        print("  2. Recording data will be saved to record/data/")
+        print("  2. Recording data will be saved to data/")
         print("  3. After recording, run this command again to submit")
         print("\nIf your data is in a different location, use --data-dir:")
         print("  python submit.py --recordings-only --data-dir /path/to/data")
@@ -413,7 +413,7 @@ Examples:
 
     # Common arguments
     parser.add_argument(
-        "--data-dir", default="record/data", help="Recording data directory (default: record/data)"
+        "--data-dir", default="data", help="Recording data directory (default: data)"
     )
     parser.add_argument("--config", default="eval/snapshot_config.json", help="Config file path")
     parser.add_argument(

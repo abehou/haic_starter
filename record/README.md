@@ -73,7 +73,7 @@ pip install -e .[monitoring]
 gum
 ```
 
-The recorded actions and screenshots will be saved in `record/data`.
+The recorded actions and screenshots will be saved in `data/` at the project root.
 
 ### Scroll Filtering Options
 
