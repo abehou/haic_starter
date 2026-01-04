@@ -346,7 +346,7 @@ async def _main():
         print(f"\nData saved in: {data_directory}/")
         print("\nNext steps:")
         print("  1. Review recording:  python review_recording.py")
-        print("  2. Submit to GCS:     python submit_recordings.py")
+        print("  2. Submit to GCS:     python submit.py")
         print("=" * 70)
 
 
